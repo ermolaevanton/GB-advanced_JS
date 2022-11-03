@@ -31,6 +31,10 @@ button:hover {
     background-color: grey;
 }
 
+.hidden {
+    display: none;
+}
+
 .cart {
     min-width: 340px;
     min-height: 100px;

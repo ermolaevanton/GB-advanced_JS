@@ -10,8 +10,9 @@ class ProductList {
             .then(data => {
                 this.goods = data;
                 this.render();
+                this.getSumProducts();
             });
-        this.getSumProducts();
+
     }
     _getProducts() {
         return fetch(`${api}/catalogData.json`)
@@ -28,13 +29,11 @@ class ProductList {
         }
     }
     getSumProducts() {
-        window.onload = () => {
-            let sum = 0;
-            for (i = 0; i < this.goods.length; i++) {
-                sum += this.goods[i].price;
-            }
-            console.log(sum);
-        }
+        let sum = 0;
+        this.goods.forEach(item => {
+            sum += item.price;
+        });
+        console.log(sum);
     }
 }
 
@@ -55,61 +54,48 @@ class ProductItem {
                     <button class="item__button"  data-id="${this.id}">Купить</button>
                 </div>`
     }
-};
+}
 
 class CartList {
-    constructor(id, container = '.cart') {
+    constructor(container = '.cart') {
         this.container = container;
-        this.count = 0;
-        this.good = [];
-        this.id = id;
-        this.addProduct()
+        this.goods = [];
+        this._clickCart();
+        this._addProduct()
             .then(data => {
-                let obj = data.filter(item => {
-                    return item.id_product == this.id;
-                });
-                this.good = obj;
-                this.changeCountProduct();
+                this.goods = data.contents;
+                this.render();
             });
     }
 
-    addProduct() {
-        return fetch(`${api}/catalogData.json`)
+    _addProduct() {
+        return fetch(`${api}/getBasket.json`)
             .then(result => result.json())
             .catch(error => {
                 console.log(error);
             });
     }
-    changeCountProduct() {
-        const block = document.querySelector(this.container);
-        const blockCart = block.querySelector(`.cart-item[data-id="${this.id}"]`);
-        if (!blockCart) {
-            this.render();
-        } else {
-            this.count++;
-            console.log(this.count);
-        }
-    }
-    deleteProduct() {
-
+    _clickCart() {
+        document.querySelector('.btn-cart').addEventListener('click', () => {
+            document.querySelector(this.container).classList.toggle('hidden');
+        })
     }
     render() {
         const block = document.querySelector(this.container);
-        for (let product1 of this.good) {
+        for (let product1 of this.goods) {
             const item = new CartItem(product1);
             block.insertAdjacentHTML('beforeend', item.render());
-            console.log(item);
         }
     }
 }
 
-class CartItem extends CartList {
-    constructor(product1, img = 'https://via.placeholder.com/520x400', count) {
-        super(count);
+class CartItem {
+    constructor(product1, img = 'https://via.placeholder.com/520x400') {
         this.title = product1.product_name;
         this.id = product1.id_product;
         this.price = product1.price;
         this.img = img;
+        this.quantity = product1.quantity;
     }
     render() {
         return `<div class="cart-item" data-id="${this.id}">
@@ -118,11 +104,12 @@ class CartItem extends CartList {
                     </div>
                     <div class="cart__info">
                         <h2 class="cart__title">${this.title}</h2>
-                        <p class="cart__count">Count: ${this.count}</p>
+                        <p class="cart__count">Count: ${this.quantity}</p>
+                        <p>Price: ${this.price}$</p>
                     </div>
                     <div class="cart__right">
                         <button class="cart__x">X</button>
-                        <p class="cart__price">${this.price}$</p>
+                        <p class="cart__price">${this.price * this.quantity}$</p>
                     </div>
                 </div>`
     }
@@ -130,6 +117,10 @@ class CartItem extends CartList {
 
 
 const list = new ProductList();
+new CartList();
+
+
+
 
 
 

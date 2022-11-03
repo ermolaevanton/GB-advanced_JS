@@ -15,7 +15,7 @@
             <h2 class="title">E-SHOP</h2>
             <div>
                 <button class="btn-cart" type="button">Корзина</button>
-                <div class="cart">
+                <div class="cart hidden">
 
                 </div>
             </div>
@@ -29,20 +29,7 @@
     </main>
 
     <script src="cards.js"></script>
-    <script>
-        'use strict';
 
-        window.onload = () => {
-            document.querySelector('.products')
-                .addEventListener('click', event => {
-                    if (!event.target.closest('.item__button')) {
-                        return;
-                    }
-                    new CartList(event.target.dataset.id);
-
-                })
-        };
-    </script>
 </body>
 
 </html>
