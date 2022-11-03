@@ -24,16 +24,17 @@ class ProductList {
         const block = document.querySelector(this.container);
         for (let product of this.goods) {
             const item = new ProductItem(product);
-            console.log(item);
             block.insertAdjacentHTML('beforeend', item.render());
         }
     }
     getSumProducts() {
-        let sum = 0;
-        this.goods.forEach(item => {
-            sum += item.price;
-        });
-        console.log(sum);
+        window.onload = () => {
+            let sum = 0;
+            for (i = 0; i < this.goods.length; i++) {
+                sum += this.goods[i].price;
+            }
+            console.log(sum);
+        }
     }
 }
 
@@ -68,7 +69,7 @@ class CartList {
                     return item.id_product == this.id;
                 });
                 this.good = obj;
-                this.render();
+                this.changeCountProduct();
             });
     }
 
@@ -80,24 +81,25 @@ class CartList {
             });
     }
     changeCountProduct() {
-
+        const block = document.querySelector(this.container);
+        const blockCart = block.querySelector(`.cart-item[data-id="${this.id}"]`);
+        if (!blockCart) {
+            this.render();
+        } else {
+            this.count++;
+            console.log(this.count);
+        }
     }
     deleteProduct() {
 
     }
     render() {
         const block = document.querySelector(this.container);
-        const blockCart = block.querySelector(`.cart-item[data-id="${this.id}"]`);
-        if (!blockCart) {
-            for (let product1 of this.good) {
-                const item = new CartItem(product1);
-                block.insertAdjacentHTML('beforeend', item.render());
-                console.log(item);
-            }
+        for (let product1 of this.good) {
+            const item = new CartItem(product1);
+            block.insertAdjacentHTML('beforeend', item.render());
+            console.log(item);
         }
-        this.count++;
-        console.log(this.count);
-
     }
 }
 
@@ -128,9 +130,8 @@ class CartItem extends CartList {
 
 
 const list = new ProductList();
-// console.log(list);
-// const cart1 = new CartItem();
-// console.log(cart1);
+
+
 
 
 

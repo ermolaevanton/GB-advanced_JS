@@ -38,8 +38,8 @@
                     if (!event.target.closest('.item__button')) {
                         return;
                     }
-                    let cartItem = new CartList(event.target.dataset.id);
-                    console.log(cartItem);
+                    new CartList(event.target.dataset.id);
+
                 })
         };
     </script>
