@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c91c3c399a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="header container">
+                <a href="index.html" class="logo">E-SHOP</a>
+                <div class="cart">
+                    <form action="#" class="search-form" @submit.prevent="filter">
+                        <input type="text" class="search-field" v-model="userSearch">
+                        <button class="btn-search" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                    <button class="btn btn-cart" type="button" @click="show=!show">Корзина</button>
+                    <div class="cart-block" v-if="show">
+                        <div class="cart-item" v-for="product of cart" :key="product.id_product">
+                            <div class="cart__img">
+                                <img :src="imgCatalog" alt="img">
+                            </div>
+                            <div class="cart__info">
+                                <h2 class="cart__title">{{product.product_name}}</h2>
+                                <p class="product-quantity">Count: {{product.quantity}}</p>
+                                <p>Price: {{product.price}}$</p>
+                            </div>
+                            <div class="cart__right">
+                                <button class="btn btn-x" @click="removeProduct(product)">X</button>
+                                <p class="product-price">{{product.price * product.quantity}}$</p>
+                                <div class="cart-change">
+                                    <button class="btn btn-change" @click="removeQuantity(product)">-</button>
+                                    <button class="btn btn-change" @click="addQuantity(product)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <main>
+            <div class="container">
+                <div class="products">
+                    <div class="product__item" v-for="product of filtered" :key="product.id_product">
+                        <h3 class="item__header">{{product.product_name}}</h3>
+                        <div class="item__img">
+                            <img :src="imgCatalog" alt="img">
+                        </div>
+                        <p class="item__price">{{product.price}}$</p>
+                        <button class="btn item__button" @click="addProduct(product)">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script src="js/cards.js"></script>
+
+</body>
+
+</html>
