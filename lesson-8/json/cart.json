@@ -1,0 +1,100 @@
+{
+    "contents": [
+        {
+            "product_id": 123,
+            "product_name": "Product 1",
+            "product_price": 100,
+            "product_specification": "Product 1 specification",
+            "product_img": "img/card-img-1.png",
+            "quantity": 1
+        },
+        {
+            "product_id": 124,
+            "product_name": "Product 2",
+            "product_price": 120,
+            "product_specification": "Product 2 specification",
+            "product_img": "img/card-img-2.png",
+            "quantity": 1
+        },
+        {
+            "product_id": 125,
+            "product_name": "Product 3",
+            "product_price": 150,
+            "product_specification": "Product 3 specification",
+            "product_img": "img/card-img-3.png",
+            "quantity": 0
+        },
+        {
+            "product_id": 126,
+            "product_name": "Product 4",
+            "product_price": 90,
+            "product_specification": "Product 4 specification",
+            "product_img": "img/card-img-4.png",
+            "quantity": 1
+        },
+        {
+            "product_id": 127,
+            "product_name": "Product 5",
+            "product_price": 170,
+            "product_specification": "Product 5 specification",
+            "product_img": "img/card-img-5.png",
+            "quantity": 1
+        },
+        {
+            "product_id": 128,
+            "product_name": "Product 6",
+            "product_price": 130,
+            "product_specification": "Product 6 specification",
+            "product_img": "img/card-img-6.png",
+            "quantity": 0
+        },
+        {
+            "product_id": 129,
+            "product_name": "Product 7",
+            "product_price": 180,
+            "product_specification": "Product 7 specification",
+            "product_img": "img/card-img-7.png",
+            "quantity": 0
+        },
+        {
+            "product_id": 130,
+            "product_name": "Product 9",
+            "product_price": 190,
+            "product_specification": "Product 9 specification",
+            "product_img": "img/card-img-9.png",
+            "quantity": 1
+        },
+        {
+            "product_id": 131,
+            "product_name": "Product 10",
+            "product_price": 200,
+            "product_specification": "Product 10 specification",
+            "product_img": "img/card-img-10.png",
+            "quantity": 0
+        },
+        {
+            "product_id": 132,
+            "product_name": "Product 11",
+            "product_price": 120,
+            "product_specification": "Product 11 specification",
+            "product_img": "img/card-img-11.png",
+            "quantity": 1
+        },
+        {
+            "product_id": 133,
+            "product_name": "Product 12",
+            "product_price": 210,
+            "product_specification": "Product 12 specification",
+            "product_img": "img/card-img-12.png",
+            "quantity": 1
+        },
+        {
+            "product_id": 134,
+            "product_name": "Product 13",
+            "product_price": 250,
+            "product_specification": "Product 13 specification",
+            "product_img": "img/card-img-13.png",
+            "quantity": 1
+        }
+    ]
+}

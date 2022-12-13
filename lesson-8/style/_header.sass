@@ -1,0 +1,85 @@
+
+.header
+    background-color: #222222
+    height: 75px
+    padding-top: 18px
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: 5
+    &__menu
+        display: flex
+        justify-content: space-between
+        height: 100%
+        &_left
+            display: flex
+            justify-content: space-between
+            list-style-type: none
+            width: 111px
+            align-items: flex-end
+            margin-bottom: 0
+            padding-left: 0
+        &_right
+            display: flex
+            justify-content: space-between
+            width: 168px
+            align-items: flex-end
+            list-style-type: none
+            margin-bottom: 0
+            padding-left: 0
+.mega-menu
+    position: relative
+    padding-bottom: 20px
+    z-index: 10
+    &:hover .mega-menu__nav
+        display: block
+    &__nav
+        background-color: #FFFFFF
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21)
+        padding-top: 37px
+        padding-left: 34px
+        position: absolute
+        width: 232px
+        height: 764px
+        margin-top: 20px
+        display: none
+    &__header
+        @include txt(700, 14px, 17px, #000000)
+        margin-bottom: 24px
+    &__item
+    &__header-item
+        @include txt(400, 14px, 17px, $pink)
+        margin-bottom: 12px
+    &__link
+        display: block
+        @include txt(400, 14px, 17px, #6F6E6E)
+        text-decoration: none
+        margin-bottom: 11px
+        margin-left: 20px
+        &:hover
+            color: $pink
+.nav-img
+    padding-bottom: 20px
+    transition: all 0.2s
+    &__search-form
+        display: flex
+        margin-left: 30px
+    &__btn-search
+        background-color: #222222
+        border: none
+    &__search-field
+        background-color: #222222
+        border: none
+        color: #ffffff
+        padding: 5px
+        font-size: 20px
+        border-bottom: 3px solid #ffffff
+        margin-left: 5px
+        width: 100px
+    &__button
+        background-color: #222222
+        border: none
+        cursor: pointer
+    &:hover
+
+@import cart
