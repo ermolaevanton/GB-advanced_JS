@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c91c3c399a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="content" id="app">
+            <header class="header">
+                <div class="header__menu containers">
+                    <ul class="header__menu_left">
+                        <li class="nav-img"><a href="index.html"><img src="img/img_menu/logo.svg" alt="logo"></a></li>
+                        <li class="nav-img">
+                            <!-- <a href="#"><img src="img/img_menu/search.svg" alt="search"></a> -->
+                            <filters></filters>
+                        </li>
+                    </ul>
+                    <ul class="header__menu_right">
+                        <li class="mega-menu">
+                            <a href="#"><img src="img/img_menu/menu.svg" alt="menu"></a>
+                            <nav class="mega-menu__nav">
+                                <h3 class="mega-menu__header">MENU</h3>
+                                <div class="mega-menu__item">
+                                    <h4 class="mega-menu__header-item">MAN</h4>
+                                    <a class="mega-menu__link" href="#">Accessories</a>
+                                    <a class="mega-menu__link" href="#">Bags</a>
+                                    <a class="mega-menu__link" href="#">Denim</a>
+                                    <a class="mega-menu__link" href="#">T-Shirts</a>
+                                </div>
+                                <div class="mega-menu__item">
+                                    <h4 class="mega-menu__header-item">WOMAN</h4>
+                                    <a class="mega-menu__link" href="#">Accessories</a>
+                                    <a class="mega-menu__link" href="#">Jackets & Coats</a>
+                                    <a class="mega-menu__link" href="#">Polos</a>
+                                    <a class="mega-menu__link" href="#">T-Shirts</a>
+                                    <a class="mega-menu__link" href="#">Shirts</a>
+                                </div>
+                                <div class="mega-menu__item">
+                                    <h4 class="mega-menu__header-item">KIDS</h4>
+                                    <a class="mega-menu__link" href="#">Accessories</a>
+                                    <a class="mega-menu__link" href="#">Jackets & Coats</a>
+                                    <a class="mega-menu__link" href="#">Polos</a>
+                                    <a class="mega-menu__link" href="#">T-Shirts</a>
+                                    <a class="mega-menu__link" href="#">Shirts</a>
+                                    <a class="mega-menu__link" href="#">Bags</a>
+                                </div>
+                            </nav>
+                        </li>
+                        <li class="nav-img nav-img_reg-cart"><a href="registration.html"><img src="img/img_menu/reg.svg"
+                                    alt="reg"></a>
+                        </li>
+                        <li class="nav-img nav-img_reg-cart">
+                            <button class="nav-img__button" type="button" @click="show=!show">
+                                <img src="img/img_menu/korzina.svg" alt="korzina">
+                            </button>
+                            <cart :cart-items="cartItems" :img="imgCart" :visibility="show"></cart>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <main class="main">
+                <div class="main__container">
+                    <div class="main__picture"><img src="img/main.png" alt="man"></div>
+                    <div class="main__header">
+                        <div class="main__test">
+                            <div class="rectangle"></div>
+                            <div class="main__txt">
+                                <h1>THE&nbsp;BRAND</h1>
+                                <p class="top__content-p">OF&nbsp;LUXERIOUS&nbsp;<span
+                                        class="top__content-p-pink">FASHION</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <section class="containers">
+                <div class="offer">
+                    <a class="offer-card" href="#">
+                        <img src="img/offer-women.jpg" alt="women">
+                        <div class="offer-card__txt-block">
+                            <p class="offer-card__p">30%&nbsp;OFF</p>
+                            <h2 class="offer-card__header">FOR&nbsp;WOMEN</h2>
+                        </div>
+                    </a>
+                    <a class="offer-card" href="#">
+                        <img src="img/offer-men.jpg" alt="men">
+                        <div class="offer-card__txt-block">
+                            <p class="offer-card__p">HOT&nbsp;DEAL</p>
+                            <h2 class="offer-card__header">FOR&nbsp;MEN</h2>
+                        </div>
+                    </a>
+                    <a class="offer-card" href="#">
+                        <img src="img/offer-kids.jpg" alt="kids">
+                        <div class="offer-card__txt-block">
+                            <p class="offer-card__p">NEW&nbsp;ARRIVALS</p>
+                            <h2 class="offer-card__header">FOR&nbsp;KIDS</h2>
+                        </div>
+                    </a>
+                </div>
+                <a class="offer-card offer-card_bot" href="#">
+                    <img src="img/offer-accesories.jpg" alt="accesories">
+                    <div class="offer-card__txt-block">
+                        <p class="offer-card__p">LUXIROUS & TRENDY</p>
+                        <h2 class="offer-card__header">ACCESORIES</h2>
+                    </div>
+                </a>
+            </section>
+            <section>
+                <div class="fetured">
+                    <h2 class="fetured__h2">Fetured Items</h2>
+                    <p class="fetured__txt">Shop for items based on what we featured in this week</p>
+                </div>
+                <div class="containers">
+                    <error v-show="error"></error>
+                    <products class="product" :products="filtered" :img="imgCatalog" @add-product="addProduct">
+                    </products>
+                    <a class="product-button" href="Catalog.html">Browse All Product</a>
+                </div>
+            </section>
+            <section>
+                <div class="feature">
+                    <div class="feature-container containers">
+                        <div class="feature-block">
+                            <img class="feature__img" src="img/feature-delivery.svg" alt="delivery">
+                            <h3 class="feature__h">Free Delivery</h3>
+                            <p class="feature__txt">Worldwide delivery on all. Authorit tively morph<br> next-generation
+                                innov
+                                tion
+                                with
+                                extensive models.</p>
+                        </div>
+                        <div class="feature-block">
+                            <img class="feature__img" src="img/feature-discounts.svg" alt="delivery">
+                            <h3 class="feature__h">Sales & discounts</h3>
+                            <p class="feature__txt">Worldwide delivery on all. Authorit tively morph<br> next-generation
+                                innov
+                                tion
+                                with
+                                extensive models.</p>
+                        </div>
+                        <div class="feature-block">
+                            <img class="feature__img" src="img/feature-quality.svg" alt="delivery">
+                            <h3 class="feature__h">Quality assurance</h3>
+                            <p class="feature__txt">Worldwide delivery on all. Authorit tively morph<br> next-generation
+                                innov
+                                tion with
+                                extensive models.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="footer">
+            <section class="subscribe-section">
+                <div class="containers">
+                    <div class="subscribe-figure-form">
+                        <figure class="subscribe-figure">
+                            <img class="subscribe-avatar" src="img/footer-face.png" alt="avatar">
+                            <p class="subscribe-review">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a
+                                pulvinar
+                                purus
+                                condimentum“</p>
+                        </figure>
+                        <form class="subscribe-form" action="#">
+                            <h3 class="subscribe-h">SUBSCRIBE</h3>
+                            <p class="subscribe-p">FOR OUR NEWLETTER AND PROMOTION</p>
+                            <div class="subscribe-input-email">
+                                <input class="subscribe-input" type="email" placeholder="Enter Your Email">
+                                <a class="subscribe-button" href="#">Subscribe</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <div class="footer-copyright-social__networks">
+                <div class="containers">
+                    <div class="copyright-social__networks">
+                        <p class="copyright">© 2021 Brand All Rights Reserved.</p>
+                        <div class="social__networks">
+                            <a class="social__networks-link" href="#">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a class="social__networks-link" href="#">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a class="social__networks-link" href="#">
+                                <i class="fa-brands fa-pinterest-p"></i>
+                            </a>
+                            <a class="social__networks-link" href="#">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script src="js/error.js"></script>
+    <script src="js/filterComponent.js"></script>
+    <script src="js/ProductComponent.js"></script>
+    <script src="js/CartComponent.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>

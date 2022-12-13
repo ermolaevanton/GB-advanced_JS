@@ -1,0 +1,70 @@
+.cart-block
+    position: absolute
+    min-width: 340px
+    min-height: 100px
+    max-height: 500px
+    border-radius: 9px
+    border: 1px solid DimGray
+    background-color: #fff
+    transform: translate(-180px, 10px)
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15)
+    padding: 15px
+    z-index: 10
+    overflow-y: scroll
+.cart-item
+    display: flex
+    justify-content: space-between
+    margin-bottom: 15px
+
+.cart__img img
+    width: 100px
+
+.cart__info
+    width: 100%
+    margin: 0 10px
+
+.cart__title
+    margin-bottom: 10px
+
+.cart__right
+    width: 60px
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+.btn-x
+    width: 30px
+    height: 30px
+    font-weight: bold
+    border-radius: 4px
+    border: 2px solid $pink
+    font-size: 20px
+    cursor: pointer
+    color: $pink
+    transition: all 0.5s
+    &:hover
+        color: #ffffff
+        background-color: $pink
+
+.cart-change
+    display: flex
+
+.btn-change
+    width: 18px
+    height: 18px
+    border-radius: 4px
+    border: 2px solid $pink
+    display: flex
+    flex-direction: row
+    align-items: center
+    align-content: center
+    justify-content: center
+    font-weight: bold
+    margin-left: 1px
+    cursor: pointer
+    color: $pink
+    transition: all 0.5s
+    &:hover
+        color: #ffffff
+        background-color: $pink
+.product-price
+    margin: 10px 0
